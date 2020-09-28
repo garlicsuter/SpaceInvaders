@@ -17,4 +17,12 @@ public class scr_BulletBehaviour : MonoBehaviour
     {
         bulletTransform.position += Vector3.up * speed;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }

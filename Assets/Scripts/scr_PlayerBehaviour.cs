@@ -7,6 +7,10 @@ public class scr_PlayerBehaviour : MonoBehaviour
     private Transform playerTransform;
     public float speed;
     public GameObject bulletFired;
+    private float fireElapsedTime = 0.0f;
+    public float fireDelay = 0.2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +24,14 @@ public class scr_PlayerBehaviour : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0);
         playerTransform.position += movement * speed;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        //continually increase how much time has elapsed since last fire. Once it is greater than the "fireDelay"
+        // you can shoot again. Reset fireElapsed time to 0;
+        fireElapsedTime += Time.deltaTime;
+
+        if(Input.GetButton("Jump") && fireElapsedTime >= fireDelay)
         {
             Instantiate(bulletFired, playerTransform.position, playerTransform.rotation);
+            fireElapsedTime = 0;
         }
     }
 }
