@@ -16,6 +16,11 @@ public class scr_BulletBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         bulletTransform.position += Vector3.up * speed;
+
+        if (bulletTransform.position.y > 3.0f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -23,6 +28,7 @@ public class scr_BulletBehaviour : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
