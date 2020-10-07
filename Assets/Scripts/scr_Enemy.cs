@@ -20,11 +20,13 @@ public class scr_Enemy : MonoBehaviour
         if (enemyTransform.position.x > 9.0f)
         {
             enemyDirection = 0;
+            enemyTransform.position -= new Vector3(0, 0.5f);
         }
 
         if (enemyTransform.position.x < -9.0f)
         {
             enemyDirection = 1;
+            enemyTransform.position -= new Vector3(0, 0.5f);
         }
 
         if (enemyDirection == 1)

@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 401781242}
   - component: {fileID: 401781241}
   m_Layer: 0
-  m_Name: emptyParent
+  m_Name: enemyShips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

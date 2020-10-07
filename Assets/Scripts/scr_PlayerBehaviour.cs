@@ -10,11 +10,16 @@ public class scr_PlayerBehaviour : MonoBehaviour
     private float fireElapsedTime = 0.0f;
     public float fireDelay = 0.2f;
 
+    public AudioSource audioSource;
+    public AudioClip snd_boom;
+    public AudioClip snd_coin;
+    public float volume = 0.8f;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GetComponent<Transform>();   
+        playerTransform = GetComponent<Transform>();
+        audioSource.PlayOneShot(snd_boom, volume);
     }
 
     // Update is called once per frame
